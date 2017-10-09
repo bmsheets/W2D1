@@ -32,11 +32,9 @@ class Display
   end
 end
 
-def test
+if __FILE__ == $PROGRAM_NAME
   board = Board.new
   board.make_starting_grid
   display = Display.new(board)
   display.test_render
 end
-
-test

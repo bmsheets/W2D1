@@ -3,6 +3,7 @@ require_relative 'piece'
 class Board
   def initialize
     @grid = Array.new(8) { Array.new(8) }
+    @null_piece = NullPiece.new
   end
 
   def make_starting_grid
@@ -14,7 +15,7 @@ class Board
         if starting_pos.include?(row.to_s)
           self[pos] = Piece.new
         else
-          self[pos] = NullPiece.new
+          self[pos] = @null_piece
         end
       end
     end
@@ -34,7 +35,7 @@ class Board
     raise "No piece available." if self[start_pos].is_a?(NullPiece)
     #add in raise exception if end_pos not possible to move
     self[end_pos] = self[start_pos]
-    self[start_pos] = NullPiece.new
+    self[start_pos] = @null_piece
   end
 
   def in_bounds(pos)

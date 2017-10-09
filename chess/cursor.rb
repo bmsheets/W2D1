@@ -42,8 +42,6 @@ class Cursor
   def get_input
     key = KEYMAP[read_char]
     handle_key(key)
-  rescue RuntimeError
-    retry
   end
 
   private
@@ -93,7 +91,6 @@ class Cursor
     x, y = @cursor_pos
     x += diff.first
     y += diff.last
-    raise "Move out of bounds" unless @board.in_bounds([x, y])
-    @cursor_pos = [x, y]
+    @cursor_pos = [x, y] if @board.in_bounds([x, y])
   end
 end
