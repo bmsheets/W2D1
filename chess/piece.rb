@@ -1,5 +1,11 @@
 class Piece
-  def initialize
+
+  attr_reader :color
+
+  def initialize(position, board, color = :black)
+    @position = position
+    @board = board
+    @color = color
   end
 
   def to_s
@@ -8,10 +14,9 @@ class Piece
 end
 
 class NullPiece < Piece
-  include Singleton
-  
+  #include Singleton
+
   def initialize
-    super
   end
 
   def to_s

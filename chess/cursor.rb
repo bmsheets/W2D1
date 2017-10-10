@@ -91,6 +91,6 @@ class Cursor
     x, y = @cursor_pos
     x += diff.first
     y += diff.last
-    @cursor_pos = [x, y] if @board.in_bounds([x, y])
+    @cursor_pos = [x, y] if @board.in_bounds?([x, y])
   end
 end
