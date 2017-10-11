@@ -6,6 +6,7 @@ require_relative 'rook'
 require_relative 'bishop'
 require_relative 'knight'
 
+
 COL_MAP = {0 => :rook, 1 => :knight, 2 => :bishop,
 3 => :queen, 4 => :king, 5 => :bishop, 6 => :knight, 7 => :rook}
 
